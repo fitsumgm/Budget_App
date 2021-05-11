@@ -1,4 +1,4 @@
-#*******OOP programming, budget App*****
+#******OOP programming, budget App*****
 
 class Category:
 
