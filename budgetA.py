@@ -9,17 +9,15 @@ class Category:
 
     def deposit(self, amount):
 
-        amount = int(input("How much would you like like to deposit in to your {} category: \n".format(self.category)) )
         print("you've successfully deposited {} to your {} category \n".format(amount, self.category))
 
         self.amount += amount;
-        return ("YOur balance is {}".format(self.amount))
+        return ("YOur balance is {} \n".format(self.amount))
 
 
     def withdraw(self, amount):
 
-        amount = int(input("How much would you like to withdraw from your {} category: \n".format(self.category)))
-        print("You've successfully withdrawn {} from your {} category".format(amount, self.category))
+        print("You've successfully withdrawn {} from your {} category \n".format(amount, self.category))
 
         self.amount -= amount;
         return self.amount
@@ -34,8 +32,7 @@ class Category:
             
 
     def transfer(self, amount):
-        self.withdraw(amount) 
-        return Car_category.deposit(amount)
+        return self.withdraw(amount) + Category.deposit(amount)
 
 
 Vacation_category = Category('Vacation', 1000)
