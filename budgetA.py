@@ -12,7 +12,7 @@ class Category:
         print("you've successfully deposited {} to your {} category \n".format(amount, self.category))
 
         self.amount += amount;
-        return ("YOur balance is {} \n".format(self.amount))
+        return ("Your balance is {} \n".format(self.amount))
 
 
     def withdraw(self, amount):
@@ -31,9 +31,13 @@ class Category:
             return False
             
 
-    def transfer(self, amount):
-        return self.withdraw(amount) + Category.deposit(amount)
-
+    def transfer(self, amount, category):
+        if not self.check_balance(amount):
+            return ("Not successful")
+            
+        self.amount -= amount
+        category.amount += amount
+        return ("Transfer Successful")
 
 Vacation_category = Category('Vacation', 1000)
 Clothing_category = Category('Clothing', 1000)
@@ -43,4 +47,4 @@ Car_category = Category('Car Expenses', 1000)
 print(Vacation_category.deposit(250))
 print(Vacation_category.withdraw(200))
 print(Vacation_category.check_balance(100))
-print(Food_category.transfer(200))
+print(Food_category.transfer(200, Vacation_category))
